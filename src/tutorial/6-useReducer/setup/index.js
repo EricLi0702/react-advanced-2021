@@ -1,10 +1,9 @@
 import React, { useReducer, useState } from 'react';
 import Modal from './Modal';
 import {data} from '../../../data'
+import {reducer} from './reducer'
 
-const reducer = (state,action) => {
 
-}
 
 const defaultState = {
     people:[],
@@ -18,14 +17,19 @@ const Index = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(name){
-
+            const newItem = {id:new Date().getTime().toString(),name}
+            dispatch({type:'ADD_ITEM',payload:newItem})
+            setName('');
         }else{
-
+            dispatch({type:'NO_VALUE'})
         }
+    }
+    const closeModal = () => {
+        dispatch({type:"CLOSE_MODAL"})
     }
     return (
         <>
-            {state.isModalOpen && <Modal modalContent={state.modalContent}></Modal>}
+            {state.isModalOpen && <Modal closeModal={closeModal} modalContent={state.modalContent}></Modal>}
             <form onSubmit={handleSubmit} className="form">
                 <div>
                     <label htmlFor="name">Name: </label>
@@ -45,6 +49,7 @@ const Index = () => {
                     return (
                         <div key={id}>
                             <h1>{name}</h1>
+                            <button onClick={()=>dispatch({type:"REMOVE_ITEM",payload:id})}>remove</button>
                         </div>
                     )
                 })
