@@ -1,0 +1,26 @@
+export const data = [
+    {
+        name:"Ivan",
+        id:1
+    },
+    {
+        name:"kravenco",
+        id:2
+    },
+    {
+        name:"alexandar",
+        id:3
+    },
+    {
+        name:"boris",
+        id:4
+    },
+    {
+        name:"dennis",
+        id:5
+    },
+    {
+        name:"daniel",
+        id:6
+    },
+]
