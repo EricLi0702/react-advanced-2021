@@ -6,7 +6,7 @@ import {reducer} from './reducer'
 
 
 const defaultState = {
-    people:[],
+    people:data,
     isModalOpen:false,
     modalContent:''
 }
