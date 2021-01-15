@@ -10,6 +10,14 @@ const Example = () => {
      return (
             <>
                 {loading ? 'loading...' : 'data'}
+                {products?.map((person) => {
+                    return (
+                        <div key={person.id}>
+                            <h4>{person.login}</h4>
+                        </div>
+                    )
+
+                })}
             </>
         )
 }
